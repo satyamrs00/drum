@@ -9,6 +9,8 @@ import openhat from './audios/Dsc_Oh.mp3';
 import kicknhat from './audios/Kick_n_Hat.mp3';
 import kick from './audios/RP4_KICK_1.mp3';
 import closedhat from './audios/Cev_H2.mp3';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFreeCodeCamp } from "@fortawesome/free-brands-svg-icons";
 
 class Drum extends Component {
     constructor(props) {
@@ -30,8 +32,16 @@ class Drum extends Component {
     }
     handleClick(e) {
         clearTimeout(this.timeout);
-        this.props.power ?  e.target.children[0].play() : console.log('power off');
-        this.props.power ? this.props.updateDisplay(e.target.dataset.audio) : console.log('');
+        e.target.style.backgroundColor = '#ffa500';
+        e.target.style.boxShadow = '1px 1px 2px #000000';
+        e.target.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            e.target.style.backgroundColor = '#808080';
+            e.target.style.boxShadow = '3px 3px 5px #000000';
+            e.target.style.transform = 'scale(1)';
+        }, 100);
+
+        if (this.props.power){ e.target.children[0].play(); this.props.updateDisplay(e.target.dataset.audio) }
         this.timeout = setTimeout(() => {
             this.props.updateDisplay('');
         }, 1000)
@@ -49,8 +59,12 @@ class Drum extends Component {
     }
     render() {
         return (
-        <div id="drum-machine">
-            <div>
+        <div id="drum-machine" className="row p-4">
+            <span id="fcc" className="text-end">
+                FCC&nbsp;
+                <FontAwesomeIcon icon={faFreeCodeCamp} />
+            </span>
+            <div className="col-12 col-md-7 row row-cols-3 g-2" id="pads">
                 <div>
                     <button onClick={this.handleClick} className='drum-pad' data-audio="Heater 1">
                         <audio src={heater1} className="clip" id="Q" />Q
@@ -97,12 +111,16 @@ class Drum extends Component {
                     </button>
                 </div>
             </div>
-            <div>
-                <div>
-                    <button onClick={this.props.power ? this.props.turnOff : this.props.turnOn} id="power">{this.props.power ? 'ON' : 'OFF'}</button>
+            <div className="col-12 col-md-5 p-3 ps-md-5 d-flex flex-column justify-content-evenly align-items-center">
+                <div className="my-3 form-check form-switch d-flex flex-column align-items-center text-center p-0 w-100">
+                    <div className="power-label w-100">Power</div>
+                    <div className="switch">
+                        <button className="switch-thumb" style={{float: this.props.power ? "right": "left"}}
+                        onClick={this.props.power ? this.props.turnOff : this.props.turnOn} />
+                    </div>
                 </div>
-                <div id="display">{this.props.display}</div>
-                <div>
+                <div id="display" className="row align-items-center justify-content-center my-2">&nbsp;{this.props.display}&nbsp;</div>
+                <div className="w-100 my-2">
                     <input type="range" min="0" max="100" id="volume" onChange={this.handleVolume} value={this.props.volume * 100} />
                 </div>
             </div>

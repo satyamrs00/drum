@@ -3,11 +3,12 @@ import './App.css';
 import Drum from './drum.js';
 import { connect } from 'react-redux';
 import { turnOn, turnOff, changeVolumeTo, updateDisplay } from './app/actions';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div id='app' className="d-flex justify-content-center align-items-center container-fluid">
         <Drum power={this.props.power} turnOn={this.props.turnOn} turnOff={this.props.turnOff} 
         volume={this.props.volume} changeVolumeTo={this.props.changeVolumeTo} 
         display={this.props.display} updateDisplay={this.props.updateDisplay} />

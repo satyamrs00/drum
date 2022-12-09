@@ -1,0 +1,120 @@
+#drum-machine {
+    background-color: #B3B3B3;
+    border: 5px solid #FFA500;
+    position: relative;
+}
+@media screen and (max-width: 768px) {
+    #drum-machine {
+        width: 95%;
+    }
+}
+@media screen and (min-width: 768px) {
+    #drum-machine {
+        width: 75%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    #drum-machine {
+        width: 55%;
+    }
+}
+#pads button {
+    width: 100%;
+    background-color: #808080;
+    border: none;
+    outline: none;
+    aspect-ratio: 5/4;
+    border-radius: .3rem;
+    box-shadow: 3px 3px 5px #000000;
+    font-size: 1.2rem;
+}
+#pads button:active {
+    box-shadow: 1px 1px 2px #000000;
+    background-color: #FFA500;
+    transform: scale(0.95);
+}
+#fcc {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    right: 0px;
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+#display {
+    background-color: #808080;
+    min-width: 80%;
+    height: 3rem;
+}
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    outline: none;
+    background-color: #B3B3B3;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    background-color: #0000ff;
+    width: 0.6rem;
+    height: 1.8rem;
+    margin-top: -0.8rem;
+    box-shadow: .1rem .1rem .2rem #000000;
+}
+input[type="range"]::-moz-range-thumb {
+    border: none;
+    background-color: #0000ff;
+    width: 0.6rem;
+    height: 1.8rem;
+    margin-top: -0.8rem;
+    box-shadow: .1rem .1rem .2rem #000000;
+}
+input[type="range"]::-ms-thumb {
+    border: none;
+    background-color: #0000ff;
+    width: 0.6rem;
+    height: 1.8rem;
+    margin-top: -0.8rem;
+    box-shadow: .1rem .1rem .2rem #000000;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    background-color: #424242;
+    height: 0.4rem;
+    cursor: pointer;
+    box-shadow: .1rem .1rem .2rem #000000;
+    border: 0.1rem solid black;
+}
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    background-color: #424242;
+    height: 0.4rem;
+    cursor: pointer;
+    box-shadow: .1rem .1rem .2rem #000000;
+    border: 0.1rem solid black;
+}
+input[type="range"]::-ms-track {
+    width: 100%;
+    background-color: #424242;
+    height: 0.4rem;
+    cursor: pointer;
+    box-shadow: .1rem .1rem .2rem #000000;
+    border: 0.1rem solid black;
+}
+.switch {
+    background-color: #000000;
+    border: 3px solid #000;
+    min-height: 25px;
+    min-width: 50px;
+    cursor: pointer;
+}
+.switch-thumb {
+    background-color: #00f;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
