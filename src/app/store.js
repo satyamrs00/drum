@@ -1,12 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { TURNOFF, TURNON, VOLUME, DISPLAY } from './actions';
+import { POWER, VOLUME, DISPLAY, BANK } from './actions';
 
 const powerReducer = (state = true, action) => {
   switch (action.type) {
-    case TURNON:
-      return true;
-    case TURNOFF:
-      return false;
+    case POWER:
+      return !state;
     default:
       return state;
   }
@@ -27,10 +25,19 @@ const displayReducer = (state = '', action) => {
       return state;
   }
 }
+const bankReducer = (state = false, action) => {
+  switch (action.type) {
+    case BANK:
+      return !state;
+    default:
+      return state;
+  }
+}
 export const store = configureStore({
   reducer: {
     power: powerReducer,
     volume: volumeReducer,
     display: displayReducer,
+    bank: bankReducer
   },
 });

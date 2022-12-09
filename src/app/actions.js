@@ -1,17 +1,12 @@
-export const TURNON = 'TURNON';
+export const POWER = 'POWER';
 export const TURNOFF = 'TURNOFF';
 export const VOLUME = 'VOLUME';
 export const DISPLAY = 'DISPLAY';
+export const BANK = 'BANK';
 
-export function turnOn() {
+export function togglePower() {
     return {
-        type: TURNON
-    };
-}
-
-export function turnOff() {
-    return {
-        type: TURNOFF
+        type: POWER
     };
 }
 
@@ -26,5 +21,11 @@ export function updateDisplay(text) {
     return {
         type: DISPLAY,
         text
+    };
+}
+
+export function toggleBank() {
+    return {
+        type: BANK
     };
 }
